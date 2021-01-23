@@ -9,9 +9,9 @@ class TestFibonacci:
     def __init__(self, n_series):
         self.n_series = n_series
 
-    def ispandigital(self, n):
+    def __ispandigital(self, n):
         """
-        This method evaluated is the validate if a number is pan digital
+        This is a private method evaluated is the validate if a number is pan digital
         ---
         param
         n: the list with the number for validate
@@ -59,19 +59,23 @@ class TestFibonacci:
                 s1.sort(reverse=False)
                 s2.sort(reverse=False)
                 # apply the validation for pandigital number
-                v_pan_digital1 = self.ispandigital(s1)
-                v_pan_digital2 = self.ispandigital(s2)
-                # validate the len for function pan digital for know if number is pan digital
+                v_pan_digital1 = self.__ispandigital(s1)
+                v_pan_digital2 = self.__ispandigital(s2)
+                # validate the len for function pan digital for know if fibonacci
+                # number generated is pan digital
                 if v_pan_digital1 == 9 and v_pan_digital2 == 9:
-                    print(f'The first number pan digital '
+                    print('The first number pan digital '
                           f'in its first {s1} and last {s2} 9 numbers is: {n}')
                     break
                 else:
+                    print(f"the first and last 9 numbers doesn't pan digital for {n}")
                     continue
 
         except Exception as e:
             print('An error has occurred in fn fibonacci: ', e)
 
+
 if __name__ == '__main__':
-    func = TestFibonacci(329462)
+    num = int(input('Ingrese valor fibonnaci'),)
+    func = TestFibonacci(num)
     func.fk()
